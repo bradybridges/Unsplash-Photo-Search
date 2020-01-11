@@ -2,7 +2,7 @@
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
     <ImagePageNav v-on:change-page="updatePage"/>
-    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search"/>
+    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage($event.target.value)"/>
     <ImageContainer v-bind:images='images.results' v-if='images'/>
   </div>
 </template>
@@ -39,9 +39,10 @@ export default {
     .catch((err) => this.error = err);
   },
   methods: {
-    search(searchValue, page = 1) {
+    search(searchValue, page = 1, numImgs) {
       this.currentPage = page;
       this.currentSearch = searchValue;
+      this.imgsPerPage = Number(numImgs);
       unsplash.search.photos(searchValue, this.currentPage, this.imgsPerPage, { orientation: 'portrait' })
       .then((data) => data.json())
       .then((images) => this.images = images)
@@ -51,10 +52,15 @@ export default {
       if(this.currentPage === num) return;
       this.currentPage = num;
       const search = this.currentSearch;
-      this.search(search, num);
+      const imgsPerPage = this.imgsPerPage;
+      this.search(search, num, imgsPerPage);
     },
     updateImgsPerPage(num) {
-      this.imgsPerPage = num;
+      this.imgsPerPage = Number(num);
+      const search = this.currentSearch;
+      const page = this.currentPage;
+      const numImgs = this.imgsPerPage;
+      this.search(search, page, numImgs);
     }
   },
 }

@@ -1,10 +1,11 @@
 <template>
   <div id="search-form">
     <input @change="handleChange" placeholder="Search"/>
-    <button @click="$emit('search', search)">Search</button>
-    <select>  
+    <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
+    <select @change="$emit('change-img-count', $event)">  
       <option value="10">10</option>
-      <option value="100">100</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
     </select>
   </div>
 </template>
@@ -15,12 +16,16 @@ export default {
   data() {
     return {
       search: "",
+      imgsPerPage: 10,
     };
   },
   methods: {
     handleChange(e) {
       this.search = e.target.value;
     },
+    handleImgCountChange(e) {
+      this.imgsPerPage = Number(e.target.value);
+    }
   }
 }
 </script>
