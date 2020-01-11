@@ -1,18 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Welcome, Champ!</h1>
+    <ImageContainer v-bind:images='images'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { key } from '../key';
+import Unsplash from 'unsplash-js';
+import ImageContainer from './components/ImageContainer';
+const unsplash = new Unsplash({ accessKey: key });
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    ImageContainer
+  },
+  data() {
+    return {
+      images: null,
+      error: '',
+    };
+  },
+  created() {
+    unsplash.search.photos('puppies', 1, 10, { orientation: 'portrait' })
+    .then((data) => data.json())
+    .then((images) => this.images = images)
+    .catch((err) => this.error = err);
+  },
 }
 </script>
 
