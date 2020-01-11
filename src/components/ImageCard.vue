@@ -10,11 +10,6 @@
 export default {
   name: 'ImageCard',
   props: ['image'],
-  data() {
-    return {
-      url: require('../assets/logo.png'),
-    };
-  },
 }
 </script>
 
