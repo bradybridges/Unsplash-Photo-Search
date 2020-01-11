@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Welcome, Champ!</h1>
     <ImageContainer v-bind:images='images'/>
   </div>
 </template>
