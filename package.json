@@ -1,5 +1,5 @@
 {
-  "name": "first-vue-app",
+  "name": "Unsplash-Photo-Finder",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.4.4",
+    "unsplash-js": "^6.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
