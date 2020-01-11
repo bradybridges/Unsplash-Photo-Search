@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search"/>
-    <ImageContainer v-bind:images='images.results' v-if='images'/>
+    <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
+    <h2 v-if="noImages">No images found</h2>
   </div>
 </template>
 
@@ -23,6 +24,7 @@ export default {
       images: null,
       error: '',
       defaultSearch: 'Mountains',
+      noImages: false,
     };
   },
   created() {
@@ -35,7 +37,11 @@ export default {
     search(searchValue) {
       unsplash.search.photos(searchValue, 1, 10, { orientation: 'portrait' })
       .then((data) => data.json())
-      .then((images) => this.images = images)
+      .then((images) => {
+        if(!images.results.length) return this.noImages = true
+        this.images = images;
+        this.noImages = false;
+      })
       .catch((err) => this.error = err);
     },
   },
