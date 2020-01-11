@@ -2,6 +2,10 @@
   <div id="search-form">
     <input @change="handleChange" placeholder="Search"/>
     <button @click="$emit('search', search)">Search</button>
+    <select>  
+      <option value="10">10</option>
+      <option value="100">100</option>
+    </select>
   </div>
 </template>
 
