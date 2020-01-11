@@ -2,8 +2,9 @@
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
     <ImagePageNav v-on:change-page="updatePage"/>
-    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage($event.target.value)"/>
-    <ImageContainer v-bind:images='images.results' v-if='images'/>
+    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
+    <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
+    <h2 v-if="noImages">No images found</h2>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ export default {
       currentSearch: 'Mountains',
       currentPage: 1,
       imgsPerPage: 10,
+      noImages: false,
     };
   },
   created() {
@@ -45,7 +47,11 @@ export default {
       this.imgsPerPage = Number(numImgs);
       unsplash.search.photos(searchValue, this.currentPage, this.imgsPerPage, { orientation: 'portrait' })
       .then((data) => data.json())
-      .then((images) => this.images = images)
+      .then((images) => {
+        if(!images.results.length) return this.noImages = true
+        this.images = images;
+        this.noImages = false;
+      })
       .catch((err) => this.error = err);
     },
     updatePage(num) {

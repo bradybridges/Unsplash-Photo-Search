@@ -2,7 +2,7 @@
   <div id="search-form">
     <input @change="handleChange" placeholder="Search"/>
     <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
-    <select @change="$emit('change-img-count', $event)">  
+    <select @change="handleImgCountChange">  
       <option value="10">10</option>
       <option value="25">25</option>
       <option value="50">50</option>
@@ -25,6 +25,7 @@ export default {
     },
     handleImgCountChange(e) {
       this.imgsPerPage = Number(e.target.value);
+      this.$emit('change-img-count', this.imgsPerPage);
     }
   }
 }
