@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search"/>
-    <ImageContainer v-bind:images='images.results' v-if='images'/>
+    <h1 v-if="error !== ''">{{error}}</h1>
+    <ImagePageNav v-on:change-page="updatePage"/>
+    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
+    <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
+    <h2 v-if="noImages">No images found</h2>
   </div>
 </template>
 
@@ -10,6 +13,7 @@ import { key } from '../key';
 import Unsplash from 'unsplash-js';
 import ImageContainer from './components/ImageContainer';
 import SearchBar from './components/SearchBar';
+import ImagePageNav from './components/ImagePageNav';
 const unsplash = new Unsplash({ accessKey: key });
 
 export default {
@@ -17,27 +21,53 @@ export default {
   components: {
     ImageContainer,
     SearchBar,
+    ImagePageNav,
   },
   data() {
     return {
       images: null,
       error: '',
       defaultSearch: 'Mountains',
+      currentSearch: 'Mountains',
+      currentPage: 1,
+      imgsPerPage: 10,
+      noImages: false,
     };
   },
   created() {
-    unsplash.search.photos('mountains', 1, 10, { orientation: 'portrait' })
+    unsplash.search.photos('mountains', this.currentPage, this.imgsPerPage, { orientation: 'portrait' })
     .then((data) => data.json())
     .then((images) => this.images = images)
     .catch((err) => this.error = err);
   },
   methods: {
-    search(searchValue) {
-      unsplash.search.photos(searchValue, 1, 10, { orientation: 'portrait' })
+    search(searchValue, page = 1, numImgs) {
+      this.currentPage = page;
+      this.currentSearch = searchValue;
+      this.imgsPerPage = Number(numImgs);
+      unsplash.search.photos(searchValue, this.currentPage, this.imgsPerPage, { orientation: 'portrait' })
       .then((data) => data.json())
-      .then((images) => this.images = images)
+      .then((images) => {
+        if(!images.results.length) return this.noImages = true
+        this.images = images;
+        this.noImages = false;
+      })
       .catch((err) => this.error = err);
     },
+    updatePage(num) {
+      if(this.currentPage === num) return;
+      this.currentPage = num;
+      const search = this.currentSearch;
+      const imgsPerPage = this.imgsPerPage;
+      this.search(search, num, imgsPerPage);
+    },
+    updateImgsPerPage(num) {
+      this.imgsPerPage = Number(num);
+      const search = this.currentSearch;
+      const page = this.currentPage;
+      const numImgs = this.imgsPerPage;
+      this.search(search, page, numImgs);
+    }
   },
 }
 </script>
