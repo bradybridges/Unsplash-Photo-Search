@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ImageContainer v-bind:images='images'/>
+    <ImageContainer v-bind:images='images.results' v-if='images'/>
   </div>
 </template>
 
