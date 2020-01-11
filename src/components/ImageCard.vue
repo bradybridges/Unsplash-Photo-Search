@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="image-container">
     <img v-bind:src="image.urls.regular" v-bind:alt="image.alt_description" />
     <p>Picture taken by {{image.user.name}}</p>
     <p>@{{image.user.twitter_username}}</p>
@@ -20,7 +20,11 @@ export default {
 
 <style scoped>
   img {
-    width: 50%;
+    width: 100%;
     border-radius: 25px;
+  }
+  #image-container {
+    width: 25%;
+    padding: 50px;
   }
 </style>
