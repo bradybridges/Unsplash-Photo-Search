@@ -29,5 +29,8 @@ export default {
     align-items: center;
     height: 80vh;
     overflow: scroll;
+    background-image: url("../assets/spikes.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
   }
 </style>

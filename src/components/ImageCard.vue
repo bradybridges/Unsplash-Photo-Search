@@ -1,5 +1,5 @@
 <template>
-  <div id="image-container">
+  <div class="image-container">
     <img v-bind:src="image.urls.regular" v-bind:alt="image.alt_description" />
     <p>Picture taken by {{image.user.name}}</p>
     <p v-if="image.user.twitter_username">@{{image.user.twitter_username}}</p>
@@ -19,12 +19,12 @@ export default {
     border-radius: 25px;
   }
 
-  #image-container {
+  .image-container {
     width: 25%;
     padding: 50px;
     transition: transform .2s;
   }
-  #image-container:hover {
+  .image-container:hover {
     transform: scale(1.1);
     cursor: pointer;
   }

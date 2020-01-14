@@ -97,6 +97,8 @@ export default {
   width: 100%;
   text-align: left;
   padding-left: 20px;
+  height: 10vh;
+  background-color: red;
 }
 
 #cursive {

@@ -18,7 +18,20 @@ export default {
 </script>
 
 <style scoped>
-  .page:hover {
-    cursor: pointer;
+  .page {
+    text-decoration: underline;
   }
+  .page:hover {
+    font-size: 1.2em;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  #page-nav {
+    width: 150px;
+    background-color: gray;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
 </style>
