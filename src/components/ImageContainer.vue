@@ -22,15 +22,12 @@ export default {
 </script>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
   #image-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    height: 80vh;
+    overflow: scroll;
   }
 </style>
