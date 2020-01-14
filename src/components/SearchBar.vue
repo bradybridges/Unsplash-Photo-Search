@@ -33,17 +33,26 @@ export default {
 
 <style scoped>
   #search-form {
-    width: 50%;
     height: 50px;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    background-color: blue;
+    width: 100%;
+    height: 250px;
+    align-items: center;
   }
   input {
     width: 300px;
     text-align: center;
+    height: 50px;
+    border-radius: 10px 0px 0px 10px;
+    border: none;
   }
   button {
     width: 100px;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    border-left: 1px solid #ccc;
   }
 </style>
