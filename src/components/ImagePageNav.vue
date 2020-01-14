@@ -1,14 +1,13 @@
 <template>
   <section id="page-nav">
-    <span>Prev</span>
     <span 
       v-for="page in [1,2,3,4,5]" 
       v-bind:key="page"
       @click="$emit('change-page', page)"
+      class="page"
     >
       {{page}}
     </span>
-    <span>Next</span>
   </section>
 </template>
 
@@ -19,5 +18,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .page:hover {
+    cursor: pointer;
+  }
 </style>
