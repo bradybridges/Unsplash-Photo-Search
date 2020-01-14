@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
-    <ImagePageNav v-on:change-page="updatePage"/>
+    <h1 id="title"><span id="cursive">Unsplash</span> Photo Search</h1>
     <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
+    <ImagePageNav v-on:change-page="updatePage"/>
     <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
     <h2 v-if="noImages">No images found</h2>
   </div>
@@ -73,6 +74,13 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -82,5 +90,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+}
+
+#title {
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+#cursive {
+  font-family: 'Courgette', cursive;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 </style>
