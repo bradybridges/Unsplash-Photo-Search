@@ -41,9 +41,9 @@ export default {
   header {
      background-color: red;
     width: 100%;
-    height: 25vh;
+    height: 30vh;
     border-radius: 0 0 80% 80% / 10%; 
-    background-image: url(/img/andreas-gucklhorn-mawU2PoJWfU-unsplash.0c46d36d.jpg);
+    background-image: url('../assets/mountains_fog_peaks_135332_1920x1080.jpg');
     background-size: cover;
     display: flex;
     flex-direction: row;
