@@ -6,7 +6,7 @@
         <p>Picture taken by {{image.user.name}}</p>
         <p v-if="image.user.twitter_username">@{{image.user.twitter_username}}</p>
       </div>
-      <a class="download-btn" v-bind:href="image.urls.full" download>
+      <a class="download-btn" v-bind:href="image.urls.full" download target="blank">
         <img class="download-img" src="../assets/download.svg" alt="download image" />
       </a>
     </section>

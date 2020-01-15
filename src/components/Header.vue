@@ -6,11 +6,6 @@
     <section id="search-form">
       <input @change="handleChange" placeholder="Search"/>
       <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
-      <select @change="handleImgCountChange">  
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-      </select>
     </section>
   </header>
 </template>
@@ -28,10 +23,6 @@ export default {
     handleChange(e) {
       this.search = e.target.value;
     },
-    handleImgCountChange(e) {
-      this.imgsPerPage = Number(e.target.value);
-      this.$emit('change-img-count', this.imgsPerPage);
-    }
   }
 }
 </script>
@@ -39,7 +30,6 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Satisfy&display=swap");
   header {
-     background-color: red;
     width: 100%;
     height: 30vh;
     border-radius: 0 0 80% 80% / 10%; 
@@ -51,27 +41,15 @@ export default {
     align-items: center;
     padding: 0 2.5%;
   }
-
-  h1, h4 {
-    text-align: left;
-    padding-left: 20px;
-    color: white;
-  }
-
   h1 {
     font-family: "Satisfy", cursive;
     font-size: 3em;
+    color: white;
   }
-
-  h4 {
-    font-size: 1.2em;
-  }
-
   #search-form {
     height: 50px;
     display: flex;
     justify-content: center;
-    /* width: 100%; */
     height: 75%;
     align-items: center;
   }
@@ -81,6 +59,7 @@ export default {
     height: 50px;
     border-radius: 10px 0px 0px 10px;
     border: none;
+    font-size: 1.5em;
   }
   button {
     width: 100px;

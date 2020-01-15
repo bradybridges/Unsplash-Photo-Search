@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
-    <Header v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
+    <Header v-on:search="search"/>
+    <ImagesPerPageOptionMenu v-on:change-img-count="updateImgsPerPage"/>
     <ImagePageNav v-on:change-page="updatePage"/>
     <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
     <h2 v-if="noImages">No images found</h2>
@@ -14,6 +15,7 @@ import Unsplash from 'unsplash-js';
 import ImageContainer from './components/ImageContainer';
 import ImagePageNav from './components/ImagePageNav';
 import Header from './components/Header';
+import ImagesPerPageOptionMenu from './components/ImagesPerPageOptionMenu';
 const unsplash = new Unsplash({ accessKey: key });
 
 export default {
@@ -22,6 +24,7 @@ export default {
     ImageContainer,
     Header,
     ImagePageNav,
+    ImagesPerPageOptionMenu,
   },
   data() {
     return {
