@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
-    <Header v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
+    <Header v-on:search="search"/>
+    <ImagesPerPageOptionMenu v-on:change-img-count="updateImgsPerPage"/>
     <ImagePageNav v-on:change-page="updatePage"/>
     <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
-    <h2 v-if="noImages">No images found</h2>
+    <h2 id="no-images" v-if="noImages">No images found</h2>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import Unsplash from 'unsplash-js';
 import ImageContainer from './components/ImageContainer';
 import ImagePageNav from './components/ImagePageNav';
 import Header from './components/Header';
+import ImagesPerPageOptionMenu from './components/ImagesPerPageOptionMenu';
 const unsplash = new Unsplash({ accessKey: key });
 
 export default {
@@ -22,6 +24,7 @@ export default {
     ImageContainer,
     Header,
     ImagePageNav,
+    ImagesPerPageOptionMenu,
   },
   data() {
     return {
@@ -41,7 +44,7 @@ export default {
     .catch((err) => this.error = err);
   },
   methods: {
-    search(searchValue, page = 1, numImgs) {
+    search(searchValue, page = this.currentPage, numImgs = this.imgsPerPage) {
       this.currentPage = page;
       this.currentSearch = searchValue;
       this.imgsPerPage = Number(numImgs);
@@ -74,6 +77,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap");
 * {
     margin: 0;
     padding: 0;
@@ -87,7 +91,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -96,5 +100,12 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+}
+
+#no-images {
+  color: white;
+  position: absolute;
+  top: 50%;
+  font-size: 2em;
 }
 </style>

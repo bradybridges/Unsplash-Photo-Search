@@ -1,13 +1,13 @@
 <template>
   <section id="page-nav">
-    <span 
+    <p 
       v-for="page in [1,2,3,4,5]" 
       v-bind:key="page"
       @click="$emit('change-page', page)"
       class="page"
     >
       {{page}}
-    </span>
+    </p>
   </section>
 </template>
 
