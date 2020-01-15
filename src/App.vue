@@ -76,36 +76,36 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap");
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  @import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap");
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  body {
+    background-image: url("./assets/memphis-mini-dark.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
   }
 
-body {
-  background-image: url("./assets/memphis-mini-dark.png");
-  background-repeat: repeat;
-  background-attachment: fixed;
-}
+  #app {
+    font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
 
-#app {
-  font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-}
-
-#no-images {
-  color: white;
-  position: absolute;
-  top: 50%;
-  font-size: 2em;
-}
+  #no-images {
+    color: white;
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+  }
 </style>

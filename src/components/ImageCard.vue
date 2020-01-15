@@ -27,7 +27,7 @@ export default {
   }
   .image-container {
     width: 25%;
-    padding: 50px;
+    padding: 2.5%;
   }
   .download-img {
     width: 30px;
@@ -43,5 +43,20 @@ export default {
   }
   .download-btn:hover {
     cursor: pointer;
+  }
+  @media only screen and (max-width: 1050px) {
+    .image-container {
+      width: 33%;
+    }
+  }
+  @media only screen and (max-width: 850px) {
+    .image-container {
+      width: 50%;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .image-container {
+      width: 90%;
+    }
   }
 </style>

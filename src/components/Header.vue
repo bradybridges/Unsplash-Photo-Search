@@ -51,7 +51,6 @@ export default {
     text-shadow: 8px -6px 10px #000000c2;
   }
   #search-form {
-    height: 50px;
     display: flex;
     justify-content: center;
     height: 75%;
@@ -82,5 +81,25 @@ export default {
   }
   button:hover {
     cursor: pointer;
+  }
+  @media only screen and (max-width: 850px) {
+    header {
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    input {
+      width: 200px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    h1 {
+      font-size: 2.75em;
+    }
+    button {
+      padding: 2px;
+    }
+    #search-form {
+      width: 50%;
+    }
   }
 </style>
