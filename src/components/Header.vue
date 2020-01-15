@@ -42,7 +42,7 @@ export default {
      background-color: red;
     width: 100%;
     height: 25vh;
-    border-radius: 0 0 80% 80% / 20%;
+    border-radius: 0 0 80% 80% / 10%; 
     background-image: url(/img/andreas-gucklhorn-mawU2PoJWfU-unsplash.0c46d36d.jpg);
     background-size: cover;
     display: flex;

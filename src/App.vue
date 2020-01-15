@@ -81,7 +81,7 @@ export default {
   }
 
 body {
-  background-image: url("./assets/spikes.png");
+  background-image: url("./assets/memphis-mini-dark.png");
   background-repeat: repeat;
   background-attachment: fixed;
 }
