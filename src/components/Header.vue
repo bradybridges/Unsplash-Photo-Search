@@ -4,8 +4,8 @@
       <h1>Unsplash Photo Finder</h1>
     </section>
     <section id="search-form">
-      <input @change="handleChange" placeholder="Search"/>
-      <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
+      <input v-model="search" placeholder="Search"/>
+      <button @click="handleSubmit">Search</button>
     </section>
   </header>
 </template>
@@ -16,19 +16,22 @@ export default {
   data() {
     return {
       search: "",
-      imgsPerPage: 10,
     };
   },
   methods: {
-    handleChange(e) {
-      this.search = e.target.value;
+    handleSubmit(e) {
+      e.preventDefault();
+      this.$emit('search', this.search);
+      this.search = "";
     },
   }
 }
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Satisfy&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Satisfy&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap");
+
   header {
     width: 100%;
     height: 30vh;
@@ -43,8 +46,9 @@ export default {
   }
   h1 {
     font-family: "Satisfy", cursive;
-    font-size: 3em;
+    font-size: 3.5em;
     color: white;
+    text-shadow: 8px -6px 10px #000000c2;
   }
   #search-form {
     height: 50px;
@@ -54,18 +58,29 @@ export default {
     align-items: center;
   }
   input {
+    box-shadow: 9px -7px 20px 0px #000000c2;
     width: 300px;
     text-align: center;
     height: 50px;
     border-radius: 10px 0px 0px 10px;
     border: none;
     font-size: 1.5em;
+    font-family: "Source Code Pro", sans-serif;
   }
   button {
+    box-shadow: 9px -7px 20px 0px #000000c2;
     width: 100px;
     height: 50px;
     border-radius: 0px 10px 10px 0px;
     border: none;
     border-left: 1px solid #ccc;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+    border: solid white 1px;
+    font-family: "Source Code Pro", sans-serif;
+  }
+  button:hover {
+    cursor: pointer;
   }
 </style>

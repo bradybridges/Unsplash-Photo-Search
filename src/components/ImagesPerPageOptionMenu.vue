@@ -30,7 +30,6 @@ export default {
   #imgs-per-page-option-menu {
     background-color: rgba(255, 255, 255, 0.671);
     width: 200px;
-    height: 40px;
     position:absolute;
     display: flex;
     justify-content: space-evenly;
