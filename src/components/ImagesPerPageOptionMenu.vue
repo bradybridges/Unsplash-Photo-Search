@@ -38,4 +38,9 @@ export default {
     top: 25vh;
     right: 1%;
   }
+  @media only screen and (max-width: 850px) {
+    #imgs-per-page-option-menu {
+      right: unset;
+    }
+  }
 </style>
