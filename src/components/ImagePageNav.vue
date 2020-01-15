@@ -28,10 +28,15 @@ export default {
   }
   #page-nav {
     width: 150px;
-    background-color: gray;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
     display: flex;
     justify-content: space-around;
     padding: 10px;
+    position: absolute;
+    top: 95vh;
+    height: 40px;
   }
 
 </style>
