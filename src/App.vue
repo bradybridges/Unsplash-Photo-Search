@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import { key } from '../key';
 import Unsplash from 'unsplash-js';
 import ImageContainer from './components/ImageContainer';
 import ImagePageNav from './components/ImagePageNav';
 import Header from './components/Header';
 import ImagesPerPageOptionMenu from './components/ImagesPerPageOptionMenu';
+const key = process.env.VUE_APP_API_KEY;
 const unsplash = new Unsplash({ accessKey: key });
 
 export default {
