@@ -1,8 +1,9 @@
 <template>
   <header>
-    <h1>Unsplash Photo Finder</h1>
-    <h4>Find Photos With Ease...</h4>
-    <div id="search-form">
+    <section id="title">
+      <h1>Unsplash Photo Finder</h1>
+    </section>
+    <section id="search-form">
       <input @change="handleChange" placeholder="Search"/>
       <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
       <select @change="handleImgCountChange">  
@@ -10,13 +11,13 @@
         <option value="25">25</option>
         <option value="50">50</option>
       </select>
-    </div>
+    </section>
   </header>
 </template>
 
 <script>
 export default {
-  name: "SearchBar",
+  name: "Header",
   data() {
     return {
       search: "",
@@ -36,19 +37,30 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Satisfy&display=swap");
   header {
-    background-color: red;
+     background-color: red;
     width: 100%;
     height: 25vh;
     border-radius: 0 0 80% 80% / 20%;
-    background-image: url("../assets/andreas-gucklhorn-mawU2PoJWfU-unsplash.jpg");
+    background-image: url(/img/andreas-gucklhorn-mawU2PoJWfU-unsplash.0c46d36d.jpg);
     background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5%;
   }
 
   h1, h4 {
     text-align: left;
     padding-left: 20px;
     color: white;
+  }
+
+  h1 {
+    font-family: "Satisfy", cursive;
+    font-size: 3em;
   }
 
   h4 {

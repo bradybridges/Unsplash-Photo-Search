@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
-    <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
+    <Header v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
     <ImagePageNav v-on:change-page="updatePage"/>
     <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
     <h2 v-if="noImages">No images found</h2>
@@ -12,15 +12,15 @@
 import { key } from '../key';
 import Unsplash from 'unsplash-js';
 import ImageContainer from './components/ImageContainer';
-import SearchBar from './components/SearchBar';
 import ImagePageNav from './components/ImagePageNav';
+import Header from './components/Header';
 const unsplash = new Unsplash({ accessKey: key });
 
 export default {
   name: 'app',
   components: {
     ImageContainer,
-    SearchBar,
+    Header,
     ImagePageNav,
   },
   data() {
@@ -97,18 +97,4 @@ body {
   align-items: center;
   height: 100vh;
 }
-
-/* #title {
-  width: 100%;
-  text-align: left;
-  padding-left: 20px;
-  height: 10vh;
-  background-color: red;
-}
-
-#cursive {
-  font-family: 'Courgette', cursive;
-  font-weight: 700;
-  font-size: 1.2em;
-} */
 </style>
