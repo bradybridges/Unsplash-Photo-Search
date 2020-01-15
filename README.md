@@ -8,8 +8,7 @@
 * [Screenshots](#Screenshots) 
 
 ## Objective
-  
-
+  The objective of this application was to simulate a take home challenge from an employer. This application was created harnessing a new framework(Vue.js), to emphasize my ability to learn new skills and solve problems within a small window of time.
 ## Tools Used
 
 - Vue
@@ -39,3 +38,4 @@ npm install
 
 ## Screenshots
 
+![Screen Shot 2020-01-15 at 10 23 58 AM](https://user-images.githubusercontent.com/25031031/72456074-2fc57500-3781-11ea-91c2-4b2043ed9bce.png)
