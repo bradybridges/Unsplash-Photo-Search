@@ -27,10 +27,7 @@ export default {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    height: 80vh;
+    height: 75vh;
     overflow: scroll;
-    background-image: url("../assets/spikes.png");
-    background-repeat: repeat;
-    background-attachment: fixed;
   }
 </style>

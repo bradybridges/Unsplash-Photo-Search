@@ -1,13 +1,17 @@
 <template>
-  <div id="search-form">
-    <input @change="handleChange" placeholder="Search"/>
-    <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
-    <select @change="handleImgCountChange">  
-      <option value="10">10</option>
-      <option value="25">25</option>
-      <option value="50">50</option>
-    </select>
-  </div>
+  <header>
+    <h1>Unsplash Photo Finder</h1>
+    <h4>Find Photos With Ease...</h4>
+    <div id="search-form">
+      <input @change="handleChange" placeholder="Search"/>
+      <button @click="$emit('search', search, null, imgsPerPage)">Search</button>
+      <select @change="handleImgCountChange">  
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -32,13 +36,31 @@ export default {
 </script>
 
 <style scoped>
+  header {
+    background-color: red;
+    width: 100%;
+    height: 25vh;
+    border-radius: 0 0 80% 80% / 20%;
+    background-image: url("../assets/andreas-gucklhorn-mawU2PoJWfU-unsplash.jpg");
+    background-size: cover;
+  }
+
+  h1, h4 {
+    text-align: left;
+    padding-left: 20px;
+    color: white;
+  }
+
+  h4 {
+    font-size: 1.2em;
+  }
+
   #search-form {
     height: 50px;
     display: flex;
     justify-content: center;
-    background-color: blue;
-    width: 100%;
-    height: 250px;
+    /* width: 100%; */
+    height: 75%;
     align-items: center;
   }
   input {

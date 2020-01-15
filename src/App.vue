@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <h1 v-if="error !== ''">{{error}}</h1>
-    <h1 id="title"><span id="cursive">Unsplash</span> Photo Search</h1>
     <SearchBar v-bind:defaultSearch="defaultSearch" v-on:search="search" v-on:change-img-count="updateImgsPerPage"/>
     <ImagePageNav v-on:change-page="updatePage"/>
     <ImageContainer v-bind:images='images.results' v-if='images && !noImages'/>
@@ -81,6 +80,12 @@ export default {
     box-sizing: border-box;
   }
 
+body {
+  background-image: url("./assets/spikes.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +98,7 @@ export default {
   height: 100vh;
 }
 
-#title {
+/* #title {
   width: 100%;
   text-align: left;
   padding-left: 20px;
@@ -105,5 +110,5 @@ export default {
   font-family: 'Courgette', cursive;
   font-weight: 700;
   font-size: 1.2em;
-}
+} */
 </style>
