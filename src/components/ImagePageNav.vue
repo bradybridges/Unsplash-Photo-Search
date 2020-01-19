@@ -35,7 +35,7 @@ export default {
     justify-content: space-around;
     padding: 10px;
     position: absolute;
-    top: 95vh;
+    top: 94vh;
     height: 40px;
     z-index: 5;
     border: solid rgba(255, 255, 255, 0.548) 1px;
