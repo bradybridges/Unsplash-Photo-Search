@@ -1,4 +1,4 @@
-# Unsplah Photo Finder
+# Unsplash Photo Finder
 
 ## Table of contents
 * [Objective](#Objective)
